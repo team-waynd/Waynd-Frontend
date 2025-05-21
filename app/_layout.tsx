@@ -1,29 +1,47 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import "react-native-reanimated";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+// app/_layout.tsx (현재 RootLayout)
+import {
+	DarkTheme,
+	DefaultTheme,
+	ThemeProvider,
+} from "@react-navigation/native";
+import { Stack, useRouter } from "expo-router";
+
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+	const colorScheme = useColorScheme();
+	const router = useRouter();
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
+	const [loaded] = useFonts({
+		SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+	});
 
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+	const isLoggedIn = false; // TODO: 로그인 상태 확인 로직으로 교체
+
+	useEffect(() => {
+		if (loaded) {
+			// if (!isLoggedIn) {
+			router.replace("/auth/login");
+			// }
+		}
+	}, [loaded]);
+
+	if (!loaded) return null;
+
+	return (
+		<ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+			<Stack>
+				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+				<Stack.Screen name="auth/login" options={{ headerShown: false }} />
+				<Stack.Screen name="auth/register" options={{ title: "회원가입" }} />
+				<Stack.Screen name="+not-found" />
+			</Stack>
+			<StatusBar style="auto" />
+		</ThemeProvider>
+	);
 }
