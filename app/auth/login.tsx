@@ -1,18 +1,18 @@
 // app/auth/login.tsx
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
-import { useRouter } from "expo-router";
-import { useState } from "react";
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
 
 export default function LoginScreen() {
 	const router = useRouter();
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
 	const handleLogin = () => {
 		// TODO: 실제 로그인 로직 추가
-		console.log("Logging in with:", email, password);
-		router.replace("/(tabs)"); // 로그인 성공 시 탭 홈으로 이동
+		console.log('Logging in with:', email, password);
+		router.replace('/(tabs)'); // 로그인 성공 시 탭 홈으로 이동
 	};
 
 	return (
@@ -39,18 +39,18 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: "center",
+		justifyContent: 'center',
 		padding: 24,
-		backgroundColor: "#fff",
+		backgroundColor: '#fff',
 	},
 	title: {
 		fontSize: 24,
 		marginBottom: 24,
-		textAlign: "center",
+		textAlign: 'center',
 	},
 	input: {
 		height: 48,
-		borderColor: "#ccc",
+		borderColor: '#ccc',
 		borderWidth: 1,
 		marginBottom: 12,
 		paddingHorizontal: 12,
