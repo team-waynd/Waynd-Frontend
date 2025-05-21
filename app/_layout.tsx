@@ -1,11 +1,7 @@
 import 'react-native-reanimated';
 
 // app/_layout.tsx (현재 RootLayout)
-import {
-    DarkTheme,
-    DefaultTheme,
-    ThemeProvider,
-} from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack, useRouter } from 'expo-router';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -34,22 +30,14 @@ export default function RootLayout() {
     if (!loaded) return null;
 
     return (
-        <ThemeProvider
-            value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-        >
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
             <Stack>
-                <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-                <Stack.Screen
-                    name='auth/login'
-                    options={{ headerShown: false }}
-                />
-                <Stack.Screen
-                    name='auth/register'
-                    options={{ title: '회원가입' }}
-                />
-                <Stack.Screen name='+not-found' />
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen name="auth/login" options={{ headerShown: false }} />
+                <Stack.Screen name="auth/register" options={{ title: '회원가입' }} />
+                <Stack.Screen name="+not-found" />
             </Stack>
-            <StatusBar style='auto' />
+            <StatusBar style="auto" />
         </ThemeProvider>
     );
 }
