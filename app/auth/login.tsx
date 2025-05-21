@@ -19,19 +19,19 @@ export default function LoginScreen() {
 		<View style={styles.container}>
 			<Text style={styles.title}>로그인</Text>
 			<TextInput
-				placeholder="이메일"
+				placeholder='이메일'
 				value={email}
 				onChangeText={setEmail}
 				style={styles.input}
 			/>
 			<TextInput
-				placeholder="비밀번호"
+				placeholder='비밀번호'
 				value={password}
 				onChangeText={setPassword}
 				secureTextEntry
 				style={styles.input}
 			/>
-			<Button title="로그인" onPress={handleLogin} />
+			<Button title='로그인' onPress={handleLogin} />
 		</View>
 	);
 }
