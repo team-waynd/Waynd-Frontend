@@ -21,9 +21,9 @@ export default function RootLayout() {
 
     useEffect(() => {
         if (loaded) {
-            // if (!isLoggedIn) {
-            router.replace('/auth/login');
-            // }
+            if (!isLoggedIn) {
+                router.replace('/auth/login');
+            }
         }
     }, [loaded]);
 

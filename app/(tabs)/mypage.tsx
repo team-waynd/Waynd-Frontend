@@ -1,10 +1,10 @@
-import { Text } from 'react-native';
+import { Text } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function Travel() {
+export default function MyPage() {
     return (
         <SafeAreaView>
-            <Text>This is Travel Page</Text>
+            <Text>This is MyPage</Text>
         </SafeAreaView>
     );
 }
