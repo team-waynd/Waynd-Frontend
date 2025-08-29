@@ -1,48 +1,58 @@
-import { Ionicons } from '@expo/vector-icons';
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
-export default function TabLayout() {
+import { Tabs } from 'expo-router';
+
+export default function TabsLayout() {
     return (
         <Tabs
             screenOptions={{
                 headerShown: false,
-                tabBarStyle: {
-                    backgroundColor: '#AAD2FF',
-                    paddingTop: 20,
-                    height: 80,
-                    position: 'absolute',
-                },
-                tabBarInactiveTintColor: '#FAFAF8',
-                tabBarActiveTintColor: '#4B90E2',
+                // tabBarShowLabel: false
             }}
         >
             <Tabs.Screen
-                name="index"
+                name="main"
                 options={{
-                    title: '',
-                    tabBarIcon: ({ color }) => <Ionicons size={28} name="golf" color={color} />,
+                    title: '홈',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialIcons name="home" size={size} color={color} />
+                    ),
+                }}
+            />
+            <Tabs.Screen
+                name="place"
+                options={{
+                    title: '여행지',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialIcons name="place" size={size} color={color} />
+                    ),
                 }}
             />
             <Tabs.Screen
                 name="festival"
                 options={{
-                    title: '',
-                    tabBarIcon: ({ color }) => <Ionicons size={28} name="star" color={color} />,
+                    title: '축제',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="party-popper" size={size} color={color} />
+                    ),
                 }}
             />
             <Tabs.Screen
                 name="community"
                 options={{
-                    title: '',
-                    tabBarIcon: ({ color }) => <Ionicons size={28} name="people" color={color} />,
+                    title: '커뮤니티',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialIcons name="groups" size={size} color={color} />
+                    ),
                 }}
             />
             <Tabs.Screen
                 name="mypage"
                 options={{
-                    title: '',
-                    tabBarIcon: ({ color }) => <Ionicons size={28} name="person" color={color} />,
+                    title: '마이페이지',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialIcons name="person" size={size} color={color} />
+                    ),
                 }}
             />
         </Tabs>

@@ -1,10 +1,10 @@
+import { CustomSafeArea } from '@/components/common/CustomSafeArea';
 import { Text } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Community() {
     return (
-        <SafeAreaView>
+        <CustomSafeArea>
             <Text>This is Community Page</Text>
-        </SafeAreaView>
+        </CustomSafeArea>
     );
 }
