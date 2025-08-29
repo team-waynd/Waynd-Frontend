@@ -1,10 +1,10 @@
 import { CustomSafeArea } from '@/components/common/CustomSafeArea';
-import { Text } from 'react-native-gesture-handler';
+import { Text } from 'react-native';
 
-export default function ReviewScreen() {
+export default function MainScreen() {
     return (
         <CustomSafeArea>
-            <Text>Review Screen</Text>
+            <Text>this is main page</Text>
         </CustomSafeArea>
     );
 }

@@ -13,7 +13,7 @@ export default function LoginScreen() {
             <TouchableOpacity
                 onPress={() => {
                     setIsLogined();
-                    router.push('/');
+                    router.push('/(tabs)/main');
                 }}
             >
                 <S.CenterImage source={require('../../assets/images/main_logo.png')} />
